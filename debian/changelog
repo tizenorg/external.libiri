@@ -1,0 +1,8 @@
+libiri (1.1) unstable; urgency=low
+
+  * Init changelog
+
+  * Git : pkgs/l/libiri
+  * Tag : libiri_1.1
+
+ -- Yunchan Cho <yunchan.cho@samsung.com>  Wed, 07 Dec 2011 12:36:14 +0900

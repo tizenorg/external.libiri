@@ -34,6 +34,7 @@ make %{?_smp_mflags}
 
 
 %files
+%manifest libiri.manifest
 %{_libdir}/*.so
 
 

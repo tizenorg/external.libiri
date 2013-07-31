@@ -1,54 +1,53 @@
-Name:       libiri
-Version:	1.1
-Release:	1
-License:	BSD
-Summary:	An IRI parsing library
-Url:		http://code.google.com/p/libiri/
-Group:		System/Libraries
-Source:		%{name}-%{version}.tar.gz
-BuildRequires:	autoconf
-BuildRequires:  automake
-BuildRequires:  libtool
+Name:    libiri
+Summary: a simple library for parsing Internationalized Resource Identifiers (IRIs)
+Version: 1.6
+Release: 1
+Group:   Development/Libraries
+License: TO_BE_FILLED
+Source0: %{name}-%{version}.tar.gz
+BuildRequires: pkgconfig(dlog)
 
 %description
-libiri is a simple toolkit for parsing Internationalized Resource Identifiers (IRIs).
+a simple library for parsing Internationalized Resource Identifiers (IRIs)
 
-For many intents and purposes, you can think of libiri as a “URL parser which supports Unicode”.
-
-Specifically:
-
-URLs are a subset of URIs
-URIs are restricted to a portion of the ASCII character set
-IRIs are a superset of URIs that are not restricted to ASCII characters
-If something is a valid URL or URI, it's also a valid IRI.
 
 %package devel
-Summary:    An IRI parsing library - Development Files
+Summary:    a simple library for parsing Internationalized Resource Identifiers (IRIs) (Developement)
 Group:      Development/Libraries
 Requires:   %{name} = %{version}
 
 %description devel
-libiri is a simple toolkit for parsing Internationalized Resource Identifiers (IRIs).
+a simple library for parsing Internationalized Resource Identifiers (IRIs) (Developement)
 
 %prep
 %setup -q
 
 %build
-sh ./autogen.sh
-%configure
-make %{?_smp_mflags}
+./autogen.sh --prefix=/usr
+make %{?jobs:-j%jobs}
 
 %install
+rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/license
+cp LICENSE %{buildroot}/usr/share/license/%{name}
 %make_install
 
+%clean
+rm -rf %{buildroot}
+
+%post
+
+%postun
 
 
 %files
 %manifest libiri.manifest
-%{_libdir}/*.so
-
+%defattr(-,root,root,-)
+%{_libdir}/libiri.so
+%{_bindir}/iri-config
+%{_datadir}/license/%{name}
 
 %files devel
-%{_libdir}/pkgconfig/*.pc
-%{_includedir}/*.h
-/usr/bin/iri-config
+%defattr(-,root,root,-)
+%{_includedir}/iri.h
+%{_libdir}/pkgconfig/libiri.pc

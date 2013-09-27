@@ -39,6 +39,9 @@ sh ./autogen.sh
 make %{?_smp_mflags}
 
 %install
+rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/license
+cp LICENSE %{buildroot}/usr/share/license/%{name}
 %make_install
 
 
@@ -47,6 +50,7 @@ make %{?_smp_mflags}
 %manifest libiri.manifest
 %{_libdir}/*.so
 
+%{_datadir}/license/%{name}
 
 %files devel
 %{_libdir}/pkgconfig/*.pc

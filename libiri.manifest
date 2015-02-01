@@ -1,4 +1,7 @@
 <manifest>
+  <assign>
+    <filesystem path="/usr/bin/iri-config" label="_" exec_label="none"/>
+  </assign>
   <request>
     <domain name="_"/>
   </request>

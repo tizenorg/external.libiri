@@ -1,6 +1,6 @@
 Name:    libiri
 Summary: a simple library for parsing Internationalized Resource Identifiers (IRIs)
-Version: 1.6
+Version: 1.7
 Release: 1
 Group:   Development/Libraries
 License: TO_BE_FILLED
@@ -9,6 +9,7 @@ BuildRequires: pkgconfig(dlog)
 
 %description
 a simple library for parsing Internationalized Resource Identifiers (IRIs)
+
 
 %package devel
 Summary:    a simple library for parsing Internationalized Resource Identifiers (IRIs) (Developement)

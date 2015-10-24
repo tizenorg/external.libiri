@@ -3,7 +3,7 @@ Summary: a simple library for parsing Internationalized Resource Identifiers (IR
 Version: 1.7
 Release: 1
 Group:   Development/Libraries
-License: TO_BE_FILLED
+License: BSD-2.0
 Source0: %{name}-%{version}.tar.gz
 BuildRequires: pkgconfig(dlog)
 
